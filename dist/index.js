@@ -4,33 +4,24 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _keys = require('babel-runtime/core-js/object/keys');
-
-var _keys2 = _interopRequireDefault(_keys);
-
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _immutable = require('immutable');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Podda = function () {
   function Podda() {
     var defaults = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck3.default)(this, Podda);
+
+    _classCallCheck(this, Podda);
 
     this.data = (0, _immutable.Map)(defaults);
     this.callbacks = [];
     this.watchCallbacks = {};
   }
 
-  (0, _createClass3.default)(Podda, [{
+  _createClass(Podda, [{
     key: 'fireSubscriptions',
     value: function fireSubscriptions() {
       var _this = this;
@@ -70,7 +61,7 @@ var Podda = function () {
         throw new Error('You must provide an object with updated values for Podda.set(fn)');
       }
 
-      (0, _keys2.default)(newFields).forEach(function (key) {
+      Object.keys(newFields).forEach(function (key) {
         _this2._set(key, newFields[key]);
       });
       this.fireSubscriptions();
@@ -157,6 +148,7 @@ var Podda = function () {
       };
     }
   }]);
+
   return Podda;
 }();
 
