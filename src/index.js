@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import * as Immutable from 'immutable';
 
 export default class Podda {
   constructor(defaults = {}) {

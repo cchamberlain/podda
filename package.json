@@ -8,10 +8,13 @@
   },
   "license": "MIT",
   "scripts": {
-    "prepublish": ". ./.scripts/prepublish.sh",
+    "clean": "rimraf dist",
     "lint": "eslint src",
     "lintfix": "eslint src --fix",
     "testonly": "mocha --require .scripts/mocha_runner src/**/tests/**/*.js",
+    "prebuild": "npm run clean",
+    "build": "cross-env NODE_ENV=production babel --ignore tests,stories --plugins \"transform-runtime\" ./src --out-dir ./dist",
+    "prepublish": "npm run build",
     "test": "npm run lint && npm run testonly",
     "test-watch": "npm run testonly -- --watch --watch-extensions js"
   },
@@ -24,17 +27,19 @@
     "babel-polyfill": "^6.13.0",
     "babel-preset-react-app": "^0.2.1",
     "chai": "^3.5.0",
+    "cross-env": "^5.2.0",
     "eslint": "^3.6.0",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.6.0",
     "mocha": "^3.0.2",
+    "rimraf": "^2.6.2",
     "sinon": "^1.17.6"
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
-    "immutable": "^3.8.1"
+    "immutable": "^3.0.0 || ^4.0.0-rc || ^4.0.0"
   },
   "main": "dist/index.js",
   "engines": {
