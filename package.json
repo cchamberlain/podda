@@ -1,6 +1,6 @@
 {
-  "name": "@storybook/podda",
-  "version": "1.2.3",
+  "name": "@kaggle/podda",
+  "version": "1.2.4",
   "description": "Simple Reactive DataStore for JavaScript",
   "repository": {
     "type": "git",
