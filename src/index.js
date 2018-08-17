@@ -1,8 +1,8 @@
-import * as Immutable from 'immutable';
+import { Map } from 'immutable';
 
 export default class Podda {
   constructor(defaults = {}) {
-    this.data = Immutable.Map(defaults); //eslint-disable-line
+    this.data = Map(defaults);
     this.callbacks = [];
     this.watchCallbacks = {};
   }
